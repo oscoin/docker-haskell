@@ -1,0 +1,5 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args: [ "build", "-t", "eu.gcr.io/$PROJECT_ID/docker-haskell:8.6.4", "8.6" ]
+images:
+  - "eu.gcr.io/$PROJECT_ID/docker-haskell:8.6.4"
