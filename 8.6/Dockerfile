@@ -4,7 +4,9 @@ FROM       debian:stretch
 ## ensure locale is set during build
 ENV LANG            C.UTF-8
 
-RUN apt-get update && \
+RUN mkdir ~/.gnupg && \
+    echo "disable-ipv6" > ~/.gnupg/dirmngr.conf && \
+    apt-get update && \
     apt-get install -y --no-install-recommends gnupg ca-certificates dirmngr curl git && \
     echo 'deb http://downloads.haskell.org/debian stretch main' > /etc/apt/sources.list.d/ghc.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA3CBA3FFE22B574 && \
